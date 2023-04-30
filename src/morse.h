@@ -3,8 +3,8 @@
 
 #define DOT_TIME_IN_MS 85
 #define DASH_TIME_IN_MS 500
-#define PAUSE_BETWEEN_SYMBOLS_IN_MS 20
-#define PAUSE_BETWEEN_WORDS 100
+#define PAUSE_BETWEEN_SIGNALS_IN_MS 50
+#define PAUSE_BETWEEN_SYMBOLS_IN_MS 50
 
 #define MORSE_SYMBOL_CAST (morse_symbol)
 
@@ -50,7 +50,7 @@
 
 typedef struct
 {
-    int *seq;
+    int seq[6];
     int seq_len;
 } morse_symbol;
 

@@ -74,11 +74,18 @@ morse_symbol define_morse_symbol(char ch)
 
 morse_symbol *define_morse_symbols(char *string, int string_len)
 {
-    morse_symbol *morse_symbols = malloc(sizeof(char) * string_len);
+    morse_symbol *morse_symbols = malloc(string_len * sizeof(morse_symbol));
 
     for (int i = 0; i < string_len; i++)
     {
-        morse_symbols[i] = define_morse_symbol(string[i]);
+        morse_symbol ms = define_morse_symbol(string[i]);
+        
+        morse_symbols[i].seq_len = ms.seq_len;
+
+        for (int j = 0; j < ms.seq_len; j++)
+        {
+            morse_symbols[i].seq[j] = ms.seq[j];
+        }
     }
 
     return morse_symbols;
